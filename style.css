@@ -1,5 +1,7 @@
 
-
+#main{
+    width: 100%vh;
+}
 #search-area{
     padding-top: 30px;
     padding-left: 30%;
@@ -8,9 +10,11 @@
 
     
 }
-#bgColor{
 
+#modalView{
+    background-color: ghostwhite;
 }
+
 
 .foodImg{
     width: 250px;
@@ -19,24 +23,25 @@
 #mainDivFood{
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
-    gap: 10px;
+    gap: 20px;
     border-radius: 5%;
 }
 
-#foodDivStyle{
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
-    
+#foodDetails{
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin: 5px;
+    padding: 5px;
 }
-/* 
+
 #modalView{
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-} */
-
-#modalViewImg{
-    width: 300px;
-    
 }
+.mainFood{
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

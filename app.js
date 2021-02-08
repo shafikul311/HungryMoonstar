@@ -1,5 +1,5 @@
 const mainDivFood = document.getElementById("mainDivFood");
-const warning = document.getElementById("warning");
+// const warning = document.getElementById("warning");
 const searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", function () {
@@ -11,7 +11,7 @@ searchBtn.addEventListener("click", function () {
     getFoods(searchInput);
     warning.style.display = "none";
   }
-  console.log(searchInput);
+ 
 });
 
 // food Details info
@@ -21,6 +21,7 @@ const displayDetails = (name) => {
     .then((res) => res.json())
     .then((data) => renderFoodInfo(data.meals[0]));
 };
+
 
 // Render foodInfo
 const renderFoodInfo = (food) => {
@@ -40,12 +41,12 @@ const renderFoodInfo = (food) => {
 
       foodDetails.innerHTML = `
 
-    <div id="modalView">
-    <img  src="${food.strMealThumb}" alt="" id="modalViewImg" class="img-fluid">
-    <h4>${food.strMeal}</h4>
+    <div id="modalView" >
+    <img  src="${food.strMealThumb}" alt=""  class="img-fluid">
+    <h3>${food.strMeal}</h3>
 
-     <h4>Ingredients</h4> 
-    <ul >
+     <h3>Ingredients</h3> 
+    <ul class="list-unstyled ">
     ${ingredients.map((ingredient) => `<li><i class="fas fa-check-square"></i> ${ingredient}</li>`).join("")}
     </ul>
 
@@ -79,7 +80,7 @@ function getFoods(mealId) {
         foodDiv.appendChild(mainDivFood);
       });
     } else {
-      
+
       warning.style.display = "block";
     }
   };
