@@ -1,0 +1,22 @@
+#search-area{
+    padding-top: 30px;
+    padding-left: 30%;
+    padding-bottom: 50px;
+    width: 70%;
+
+    
+}
+
+.foodImg{
+    width: 200px;
+}
+
+#mainDivFood{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 30px;
+}
+
+#foodDivStyle{
+    text-align: center;
+}
