@@ -1,4 +1,3 @@
-
 const mainDivFood = document.getElementById("mainDivFood");
 const warning = document.getElementById("warning");
 const searchBtn = document.getElementById("searchBtn");
@@ -17,7 +16,6 @@ searchBtn.addEventListener("click", function () {
 
 // food Details info
 const displayDetails = (name) => {
-  
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${name}`;
   fetch(url)
     .then((res) => res.json())
@@ -38,27 +36,22 @@ const renderFoodInfo = (food) => {
     console.log(ingredients);
   }
 
-
   const foodDetails = document.getElementById("foodDetails");
 
-foodDetails.innerHTML = `
-<img  src="${food.strMealThumb}" alt="">
-<h4>${food.strMeal}</h4>
+      foodDetails.innerHTML = `
 
-<h5  Ingredients</h5>
-<ul >
-${ingredients
-  .map((ingredient) => `<li>${ingredient}</li>`)
-  .join("")}
-</ul>
+    <div id="modalView">
+    <img  src="${food.strMealThumb}" alt="" id="modalViewImg" class="img-fluid">
+    <h4>${food.strMeal}</h4>
+
+     <h4>Ingredients</h4> 
+    <ul >
+    ${ingredients.map((ingredient) => `<li><i class="fas fa-check-square"></i> ${ingredient}</li>`).join("")}
+    </ul>
+
+    </div>
 `;
-
-
 };
-
-
-
-
 
 // food call by id
 function getFoods(mealId) {
@@ -78,17 +71,16 @@ function getFoods(mealId) {
         mainDivFood.className = "mainFood";
         const foodInfo = `
             <div onclick="displayDetails('${food.idMeal}')" id="foodDivStyle">
-            <img class="foodImg" src="${food.strMealThumb}">
-            <h3>${food.strMeal}</h3>
+            <img class="img-fluid" src="${food.strMealThumb}">
+            <h3 class="p-1">${food.strMeal}</h3>
             </div>
             `;
         mainDivFood.innerHTML = foodInfo;
         foodDiv.appendChild(mainDivFood);
       });
     } else {
+      
       warning.style.display = "block";
     }
   };
 }
-
-
