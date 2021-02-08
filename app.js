@@ -1,15 +1,16 @@
 const mainDivFood = document.getElementById("mainDivFood");
-// const warning = document.getElementById("warning");
+
 const searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", function () {
   const searchInput = document.getElementById("searchInput").value;
   mainDivFood.innerHTML = " ";
   if (searchInput === "") {
-    warning.style.display = "block";
-  } else {
+    `<h1>please give input</h1>`
+  } 
+  else {
     getFoods(searchInput);
-    warning.style.display = "none";
+    
   }
  
 });
@@ -34,7 +35,7 @@ const renderFoodInfo = (food) => {
     } else {
       break;
     }
-    console.log(ingredients);
+  
   }
 
   const foodDetails = document.getElementById("foodDetails");
@@ -81,7 +82,15 @@ function getFoods(mealId) {
       });
     } else {
 
-      warning.style.display = "block";
+      const mainDivFood = document.createElement("div");
+      mainDivFood.className = "errorFood";
+      const foodInfo = `
+         <h1 id="errorFood"> <i class="fas fa-exclamation-circle"></i> PLEASE INPUT VALID NAME</h1>
+          `;
+      mainDivFood.innerHTML = foodInfo;
+      foodDiv.appendChild(mainDivFood);
+
+      
     }
   };
 }
